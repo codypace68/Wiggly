@@ -1,0 +1,20 @@
+{
+  "name": "wiggly",
+  "version": "1.0.0",
+  "description": "Provides extra shapes that \"wiggle\" on base canvas shapes",
+  "main": "koa-app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node koa-app.js",
+    "gen-docs": "jsdoc -c conf.json -r"
+  },
+  "author": "Cody Pace",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0"
+  }
+}
