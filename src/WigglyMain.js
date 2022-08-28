@@ -1,5 +1,5 @@
-import {WigglyCircle} from "./classes/shapes/subClasses/WigglyCircle.js";
-import {WigglyRectangle} from "./classes/shapes/subClasses/WigglyRectangle.js";
+import {WigglyCircle} from "./wigglyClasses/shapes/subClasses/WigglyCircle.js";
+import {WigglyRectangle} from "./wigglyClasses/shapes/subClasses/WigglyRectangle.js";
 
 const configTypes = {
     'circle': WigglyCircle,

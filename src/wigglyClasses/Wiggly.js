@@ -10,6 +10,7 @@ class Wiggly {
     constructor(config) {
         this.config = config;
         this.canvas = config.canvas;
+        if (this.canvas.id === '') this.canvas.id = Date.now();
         this.ctx = this.canvas.getContext('2d');
         this.color = config.color;
         this.border = "rgb(0,0,0)";
