@@ -33,6 +33,9 @@ class WigglyRectangle extends WigglyShape {
         this.drawTextShape = config.drawTextShape || false;
         this.drawRectangleShape = config.drawRectangleShape || false;
         this.drawSegmentBoundaryShape = config.drawSegmentBoundaryShape || false;
+        this.rotationAngle = config.rotationAngle || 0;
+        this.currentRotation = 0;
+        console.log(this.rotationAngle);
 
         // display options
         this.wiggleSegments = config.wiggleSegments || 5;
@@ -83,6 +86,16 @@ class WigglyRectangle extends WigglyShape {
     }
 
     drawWiggle() {          
+        const centerPointx = this.x1 + this.width / 2;
+        const centerPoitny = this.y1 + this.height / 2;
+
+        if (this.rotationAngle > 0) {
+            this.ctx.translate(centerPointx, centerPoitny)
+            this.ctx.rotate((Math.PI / 180) * this.currentRotation);
+            this.ctx.translate(-centerPointx, -centerPoitny)
+        }
+
+
         this.degreeRotation += .2;
         this.ctx.beginPath();
         this.ctx.shadowBlur = this.shadowBlur;
@@ -193,15 +206,28 @@ class WigglyRectangle extends WigglyShape {
             }
         }
 
-        // this.wiggle.randomizeSegments();
+        // this.wiggle.randomizeSegments();        
         this.ctx.closePath();
+
+        //xCenter = (x1 + x2) / 2
+        //yCenter = (y1 + y2) / 2
+
 
         this.ctx.fillStyle = this.color;
         this.ctx.fill();
-
         this.ctx.strokeStyle = this.border;
         this.ctx.lineWidth = 1;
         this.ctx.stroke();
+
+        if (this.rotationAngle > 0) {
+            this.ctx.translate(centerPointx, centerPoitny)
+            this.ctx.rotate(-((Math.PI / 180) * this.currentRotation));
+            this.ctx.translate(-centerPointx, -centerPoitny)
+            this.currentRotation += this.rotationAngle;
+        }
+
+
+        
 
         // arcPositions.forEach(arc => {
         //     this.ctx.beginPath();
@@ -210,6 +236,24 @@ class WigglyRectangle extends WigglyShape {
         //     this.ctx.fill();
         //     this.ctx.closePath();
         // })
+
+        // this.ctx.beginPath();
+        // this.ctx.arc(centerPointx,centerPoitny,10,0,8);
+        // this.ctx.fillStyle = "rgb(255,255,255)";
+        // this.ctx.fill();
+        // this.ctx.closePath();
+
+        // this.ctx.beginPath();
+        // this.ctx.arc(this.x1,this.y1,10,0,8);
+        // this.ctx.fillStyle = "rgb(255,234,120)";
+        // this.ctx.fill();
+        // this.ctx.closePath();
+
+        // this.ctx.beginPath();
+        // this.ctx.arc(this.x1 + this.width / 2,this.y1,10,0,8);
+        // this.ctx.fillStyle = "rgb(255,11,54)";
+        // this.ctx.fill();
+        // this.ctx.closePath();
 
         
     }

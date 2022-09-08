@@ -10,10 +10,13 @@ class Wiggly {
     constructor(config) {
         this.config = config;
         this.canvas = config.canvas;
+        this.rect = this.canvas.getBoundingClientRect();
         if (this.canvas.id === '') this.canvas.id = Date.now();
         this.ctx = this.canvas.getContext('2d');
         this.color = config.color;
         this.border = "rgb(0,0,0)";
+        this.frameFunction = config.callEachFrame || null;
+        console.log(this.frameFunction);
     }
 
 
