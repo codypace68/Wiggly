@@ -1,0 +1,33 @@
+.fade-in {
+    animation: fade-background 1s forwards;
+}
+
+@keyframes fade-background {
+    10% {
+        background: rgba(45, 45, 45, 0.2);
+    }
+    20% {
+        background: rgba(45, 45, 45, 0.3);
+    }
+    30% {
+        background: rgba(45, 45, 45, 0.4);
+    }
+    40% {
+        background: rgba(45, 45, 45, 0.5);
+    }
+    50% {
+        background: rgba(45, 45, 45, 0.6);
+    }
+    60% {
+        background: rgba(45, 45, 45, 0.7);
+    }
+    70% {
+        background: rgba(45, 45, 45, 0.8);
+    }
+    80% {
+        background: rgba(45, 45, 45, 0.9);
+    }   
+    100% {
+        background: rgb(45,45,45);
+    }
+}

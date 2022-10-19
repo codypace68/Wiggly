@@ -3,14 +3,15 @@ const canvas = document.createElement('canvas');
 canvas.id = 'test';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+canvas.style.zIndex = 9999;
 canvas.style.position = 'fixed';
-
-const wiggles = [];
+canvas.style.top = '0px';
+canvas.style.left = '0px';
 
 document.getElementById('wiggle-circle').appendChild(canvas);
-// document.getElementById('wiggle-circle').appendChild(canvas2);
 
 canvas.addEventListener('click', (e) => {
+    if (!canvas.classList.contains('fade-in')) canvas.classList.add('fade-in');
     const shadowBlur = Math.round(Math.random() * 15);
 
     const wiggle = new Wiggle ({

@@ -3,13 +3,17 @@ const canvas = document.createElement('canvas');
 canvas.id = 'shapes';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-canvas.style.zIndex = 10;
+canvas.style.zIndex = 9999;
 canvas.style.position = 'fixed';
+canvas.style.top = '0px';
+canvas.style.left = '0px';
 
 document.getElementById('wiggle-rectangle').appendChild(canvas);
 
 
 canvas.addEventListener('click', (e) => {
+    if (!canvas.classList.contains('fade-in')) canvas.classList.add('fade-in');
+
     const shadowBlur = Math.round(Math.random() * 15);
     const rect = canvas.getBoundingClientRect();
 

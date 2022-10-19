@@ -1,28 +1,47 @@
+import {Animation} from '../../src/AnimationMain.js';
+import {Wiggle} from '../../src/WigglyMain.js';
+const canvas = document.createElement('canvas');
+canvas.id = 'test';
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.style.position = 'fixed';
 
-let delay = 1000 / 60; // 60fps
-let frame = 0;
-let time = null;
-
-
-animateLoop(0);
-function animateLoop(timestamp) {
-    // animate at 60fps
-    if (time === null) time = timestamp;
-
-    let seg = Math.floor((timestamp - time) / delay);
-
-    if (seg > frame) {
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-        canvas2.getContext('2d').clearRect(0, 0, canvas2.width, canvas2.height)
-        frame = seg;
-        //canvas.getContext('2d').clearRect(0,0,canvas.width, canvas.height)
-        wiggles.forEach(wiggle => {
-            wiggle.draw();
-        })
-    }
+document.getElementsByTagName('div')[0].appendChild(canvas);
 
 
-    window.requestAnimationFrame((timestamp) => {
-            animateLoop(timestamp);            
-    })
-}
+let animation = new Animation();
+
+animation.addObjectToAnimate(new Wiggle ({
+    type: 'circle',
+    x1: 150,
+    y1: 150,
+    canvas: canvas,
+    radius: Math.round(Math.random() * 40) + 30,
+    wiggleSegments: Math.round(Math.random() * 5) + 5,
+    shadowBlur: 10,
+    color: `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random()})`,
+}))
+
+animation.addObjectToAnimate(new Wiggle ({
+    type: 'circle',
+    x1: 250,
+    y1: 150,
+    canvas: canvas,
+    radius: Math.round(Math.random() * 40) + 30,
+    wiggleSegments: Math.round(Math.random() * 5) + 5,
+    shadowBlur: 10,
+    color: `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random()})`,
+}))
+
+animation.addObjectToAnimate(new Wiggle ({
+    type: 'circle',
+    x1: 150,
+    y1: 350,
+    canvas: canvas,
+    radius: Math.round(Math.random() * 40) + 30,
+    wiggleSegments: Math.round(Math.random() * 5) + 5,
+    shadowBlur: 10,
+    color: `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random()})`,
+}))
+
+animation.startAnimations();
