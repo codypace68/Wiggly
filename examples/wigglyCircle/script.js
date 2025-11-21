@@ -1,3 +1,4 @@
+alert("test")
 import {Wiggle} from '../../src/WigglyMain.js';
 const canvas = document.createElement('canvas');
 canvas.id = 'test';
@@ -8,7 +9,7 @@ canvas.style.position = 'fixed';
 canvas.style.top = '0px';
 canvas.style.left = '0px';
 
-alert("test")
+
 
 document.getElementById('wiggle-circle').appendChild(canvas);
 
