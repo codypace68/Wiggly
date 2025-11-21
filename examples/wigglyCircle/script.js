@@ -1,5 +1,6 @@
+
+import {Wiggle} from '/src/WigglyMain.js';
 alert("test")
-import {Wiggle} from '../../src/WigglyMain.js';
 const canvas = document.createElement('canvas');
 canvas.id = 'test';
 canvas.width = window.innerWidth;
