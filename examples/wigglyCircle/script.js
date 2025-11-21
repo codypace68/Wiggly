@@ -14,10 +14,12 @@ canvas.addEventListener('touchstart', (e) => {
     if (!canvas.classList.contains('fade-in')) canvas.classList.add('fade-in');
     const shadowBlur = Math.round(Math.random() * 15);
 
+
+    const touches = e.touches[0]
     const wiggle = new Wiggle ({
         type: 'circle',
-        x1: e.clientX,
-        y1: e.clientY,
+        x1: touch.clientX,
+        y1: touch.clientY,
         canvas: canvas,
         radius: Math.round(Math.random() * 40) + 30,
         wiggleSegments: Math.round(Math.random() * 5) + 5,
