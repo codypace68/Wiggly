@@ -15,7 +15,7 @@ canvas.addEventListener('touchstart', (e) => {
     const shadowBlur = Math.round(Math.random() * 15);
 
 
-    const touches = e.touches[0]
+    const touch = e.touches[0]
     const wiggle = new Wiggle ({
         type: 'circle',
         x1: touch.clientX,
