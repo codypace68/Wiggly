@@ -1,3 +1,7 @@
+canvas {
+    touch-action: none;
+}
+
 .fade-in {
     animation: fade-background 1s forwards;
 }
