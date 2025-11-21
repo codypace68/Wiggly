@@ -11,6 +11,7 @@ canvas.style.left = '0px';
 document.getElementById('wiggle-circle').appendChild(canvas);
 
 canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     if (!canvas.classList.contains('fade-in')) canvas.classList.add('fade-in');
     const shadowBlur = Math.round(Math.random() * 15);
 
